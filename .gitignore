@@ -1,0 +1,11 @@
+.DS_Store
+.classpath
+.jdk8
+.mvn/
+.project
+.settings/
+.metadata
+.project
+.recommenders
+/target
+test-output/
