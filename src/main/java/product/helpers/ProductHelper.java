@@ -1,7 +1,16 @@
 package product.helpers;
 
+
+/**
+* Esta clase contiene la funciones helper para encapsular o facilitar 
+*  tareas repetitivas
+*  
+* @author  Manuel Hernández
+* @version 1.0
+* @since   2020-10-08 
+*/
 public class ProductHelper {
-	
+	/*método para evaluar si un string es palíndromo */
 	public static boolean isPalindrome(String text) {
 	    String clean = text.replaceAll("\\s+", "").toLowerCase();
 	    int length = clean.length();
@@ -16,6 +25,7 @@ public class ProductHelper {
 	    return true;
 	}
 	
+	/* método para evaluar si un string contiene sólo números */
 	public static boolean isNumeric(String strNum) {
 	    if (strNum == null) {
 	        return false;

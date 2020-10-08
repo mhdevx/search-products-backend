@@ -21,20 +21,37 @@ import product.models.Product;
 import product.repositories.mongo.ProductRepo;
 import product.services.ProductService;
 
+/**
+* Esta clase contiene la definición de todos los endpoints de la api
+* search-product  
+*
+* @author  Manuel Hernández
+* @version 1.0
+* @since   2020-10-08 
+*/
 
 @RestController()
 @RequestMapping("/product/v1")
 @CrossOrigin(origins="${search.allowed-origins:*}" , methods= {RequestMethod.GET,RequestMethod.PUT,RequestMethod.OPTIONS,RequestMethod.POST,RequestMethod.DELETE})
-public class ProductoController {
+public class ProductController {
 
+	
 	@Autowired
 	ProductService productService;
-	
+
+	/**
+	* método creado para verificar si el servicio se encuentra disponible.  
+	* 
+	*/
 	@GetMapping(value = "/")
-	public ResponseEntity<?> hola() {
+	public ResponseEntity<?> hello() {
 		return new ResponseEntity<>("{\"saludo\":\"hola\"}", HttpStatus.OK);
 	}
 	
+	/**
+	* método creado para recibir los parámetros de búsqueda y retornar sus resultados.  
+	* 
+	*/
   @GetMapping("/search/{term}")
   public ResponseEntity<List<Product>> searchProducts(@PathVariable("term") String term) {
 	  return  productService.searchProducts(term);
